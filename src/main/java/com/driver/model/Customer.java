@@ -5,20 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public
-class Customer{
+@Table
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
     private String mobile;
     private String password;
 
-    //parent for TrimBooking
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    private List<TripBooking> tripBookingList=new ArrayList<>();
-
-    public Customer() {
-    }
+    private List<TripBooking> tripBookingList = new ArrayList<>();
 
     public int getCustomerId() {
         return customerId;

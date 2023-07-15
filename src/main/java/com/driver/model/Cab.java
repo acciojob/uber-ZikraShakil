@@ -3,22 +3,17 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
-public class Cab{
-
+@Table
+public class Cab {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int perKmRate;
     private boolean available;
 
-
-    //FK FOR DRIVER
     @OneToOne
     @JoinColumn
     private Driver driver;
-
-    public Cab() {
-    }
 
     public int getId() {
         return id;
